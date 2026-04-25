@@ -1,46 +1,100 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>About Me</title>
+    <title>Calculator</title>
     <style>
       body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         background-color: #f0f8ff;
         font-family: Arial;
-        text-align: center;
       }
-      h1 { color: #2c3e50; }
-      h2 { color: #2980b9; }
-      p { color: #555555; }
-      ul { list-style: none; }
+      .calculator {
+        background-color: #2c3e50;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .screen {
+        width: 100%;
+        height: 50px;
+        font-size: 24px;
+        text-align: right;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ecf0f1;
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
       button {
-        background-color: #2980b9;
-        color: white;
-        padding: 10px 20px;
+        padding: 15px;
+        font-size: 18px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 16px;
+        background-color: #ecf0f1;
+      }
+      button:hover {
+        background-color: #bdc3c7;
+      }
+      .btn-equals {
+        background-color: #2980b9;
+        color: white;
+      }
+      .btn-clear {
+        background-color: #e74c3c;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <h1>Hello! I am Mohanraj Milan</h1>
-    <h2>About Me</h2>
-    <p>I am a project manager learning to code!</p>
-    <h2>My Hobbies</h2>
-    <ul>
-      <li>Web Developing</li>
-      <li>Reading</li>
-      <li>Cooking</li>
-    </ul>
-    <button onclick="changeColor()">Change Color</button>
-    <button onclick="sayHello()">Say Hello</button>
+    <div class="calculator">
+      <input type="text" class="screen" id="screen" readonly />
+      <div class="buttons">
+        <button onclick="clearScreen()" class="btn-clear">C</button>
+        <button onclick="addToScreen('/')">÷</button>
+        <button onclick="addToScreen('*')">×</button>
+        <button onclick="deleteLast()">⌫</button>
+        <button onclick="addToScreen('7')">7</button>
+        <button onclick="addToScreen('8')">8</button>
+        <button onclick="addToScreen('9')">9</button>
+        <button onclick="addToScreen('-')">-</button>
+        <button onclick="addToScreen('4')">4</button>
+        <button onclick="addToScreen('5')">5</button>
+        <button onclick="addToScreen('6')">6</button>
+        <button onclick="addToScreen('+')">+</button>
+        <button onclick="addToScreen('1')">1</button>
+        <button onclick="addToScreen('2')">2</button>
+        <button onclick="addToScreen('3')">3</button>
+        <button onclick="calculate()" class="btn-equals" rowspan="2">=</button>
+        <button onclick="addToScreen('0')">0</button>
+        <button onclick="addToScreen('.')">.</button>
+      </div>
+    </div>
+
     <script>
-      function changeColor() {
-        document.body.style.backgroundColor = "gold";
+      function addToScreen(value) {
+        document.getElementById("screen").value += value;
       }
-      function sayHello() {
-        alert("Hello! Welcome to my page!");
+
+      function clearScreen() {
+        document.getElementById("screen").value = "";
+      }
+
+      function deleteLast() {
+        let screen = document.getElementById("screen");
+        screen.value = screen.value.slice(0, -1);
+      }
+
+      function calculate() {
+        let screen = document.getElementById("screen");
+        screen.value = eval(screen.value);
       }
     </script>
   </body>
