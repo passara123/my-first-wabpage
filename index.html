@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Me</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+        font-family: Arial;
+        text-align: center;
+      }
+      h1 { color: #2c3e50; }
+      h2 { color: #2980b9; }
+      p { color: #555555; }
+      ul { list-style: none; }
+      button {
+        background-color: #2980b9;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello! I am Mohanraj Milan</h1>
+    <h2>About Me</h2>
+    <p>I am a project manager learning to code!</p>
+    <h2>My Hobbies</h2>
+    <ul>
+      <li>Web Developing</li>
+      <li>Reading</li>
+      <li>Cooking</li>
+    </ul>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="sayHello()">Say Hello</button>
+    <script>
+      function changeColor() {
+        document.body.style.backgroundColor = "gold";
+      }
+      function sayHello() {
+        alert("Hello! Welcome to my page!");
+      }
+    </script>
+  </body>
+</html>
